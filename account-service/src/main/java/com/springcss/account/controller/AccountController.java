@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.sql.DataSource;
+
 @RestController
 @RequestMapping(value = "accounts", produces = "application/json")
 public class AccountController {
@@ -21,33 +23,22 @@ public class AccountController {
 
         logger.info("Get account by id: {} ", accountId);
 
-        Account account = new Account();
-        account.setId(1L);
-        account.setAccountCode("DemoCode");
-        account.setAccountName("DemoName");
-
-        return account;
+        return accountService.getAccountById(accountId);
     }
 
-    @GetMapping(value = "accountname/{accountName}")
-    public Account getAccountByAccountName(@PathVariable("accountName") String accountName) {
-
-        return accountService.getAccountByAccountName(accountName);
-    }
-
-    @PostMapping(value = "/")
+    @PostMapping
     public void addAccount(@RequestBody Account account) {
 
         accountService.addAccount(account);
     }
 
-    @PutMapping(value = "/")
+    @PutMapping
     public void updateAccount(@RequestBody Account account) {
 
         accountService.updateAccount(account);
     }
 
-    @DeleteMapping(value = "/")
+    @DeleteMapping
     public void deleteAccount(@RequestBody Account account) {
 
         accountService.deleteAccount(account);

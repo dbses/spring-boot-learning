@@ -8,7 +8,7 @@ import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@Endpoint(id = "mysystem", enableByDefault = true)
+@Endpoint(id = "mysystem")
 public class MySystemEndpoint {
 
 	@ReadOperation

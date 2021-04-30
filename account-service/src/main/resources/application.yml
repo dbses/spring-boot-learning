@@ -1,16 +1,16 @@
-server.port: 8082
+server:
+  port: 8082
 
 spring:
   application.name: accountservice
-  security:
-    user:
-      name: xiaoming
-      password: 123456
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/appointment?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&autoReconnect=true&serverTimezone=GMT
+    username: root
+    password: 123456
 
 logging:
   level:
-    com.netflix: WARN
-    org.springframework.web: WARN
     com.tianyalan: INFO
 
 management:

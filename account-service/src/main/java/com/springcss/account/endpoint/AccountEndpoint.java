@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 import com.springcss.account.repository.AccountRepository;
 
 @Configuration
-@Endpoint(id = "account", enableByDefault = true)
+@Endpoint(id = "account")
 public class AccountEndpoint {
 	
 	@Autowired

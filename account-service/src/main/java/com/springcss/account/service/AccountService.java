@@ -12,25 +12,15 @@ public class AccountService {
     private AccountRepository accountRepository;
 
     public Account getAccountById(Long accountId) {
-
-        return accountRepository.getOne(accountId);
-    }
-
-    public Account getAccountByAccountName(String accountName) {
-
-        return accountRepository.findAccountByAccountName(accountName);
+        return accountRepository.findById(accountId).get();
     }
 
     public void addAccount(Account account) {
         accountRepository.save(account);
-
-//        publisher.publishAccountChangedEvent(account, "ADD");
     }
 
     public void updateAccount(Account account) {
         accountRepository.save(account);
-
-//        publisher.publishAccountChangedEvent(account, "UPDATE");
     }
 
     public void deleteAccount(Account account) {

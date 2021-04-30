@@ -14,7 +14,7 @@ public class CustomerServiceHealthIndicator implements HealthIndicator {
 	@Override
 	public Health health() {
 		try {
-			URL url = new URL("http://localhost:8083/health/");
+			URL url = new URL("http://localhost:8082/health/");
 			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 			int statusCode = conn.getResponseCode();
 			if (statusCode >= 200 && statusCode < 300) {
